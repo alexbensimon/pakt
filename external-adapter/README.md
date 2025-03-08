@@ -1,1 +1,0 @@
-# Pakt cloud function
