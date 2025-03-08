@@ -1,16 +1,19 @@
 # Pakt
 
 Homepage: https://pakt-web-app.vercel.app/
+
 Docs: https://pakt.gitbook.io/docs
 
-## Why is it so hard to build new habits?
+## Overview
+
+### Why is it so hard to build new habits?
 
 1. Too much content online, don’t know where to start
 2. Too ambitious
 3. Relying on motivation
 4. Lacking short term incentives
 
-## What is Pakt?
+### What is Pakt?
 
 1. Pick a goal
 2. Bet money on your success
