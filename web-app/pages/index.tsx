@@ -54,7 +54,7 @@ const headerNavigation = [
   },
   {
     name: "Docs",
-    href: "https://docs.pakt.me/",
+    href: "https://pakt.gitbook.io/docs",
   },
 ];
 
