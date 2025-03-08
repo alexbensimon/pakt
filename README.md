@@ -100,3 +100,115 @@ Other advantages to this modification:
 2. We can now add a small MATIC fee when the user wants to unlock their funds. This fee is a nice improvement to the business model.
 
 ![New architecture](img/new-archi.png)
+
+## Tokenomics
+
+### Goals
+
+- Use financial incentives to help people build healthy habits
+- Virtuous cycle: the project should become more successful as more people are using the app and reaching their goals
+- Sustainability: the project should have steady income instead of one big win
+- Simplicity: make economics as simple as possible
+
+### Do we really need a token?
+
+#### The original concept
+
+Choose a challenge and the amount of money to lock → unlock only if challenge success
+Issues:
+
+- Project only makes money when people fail (not virtuous)
+- It’s hard to convince people to use it when they can only lose money (without considering gas cost)
+
+#### Without a token - solution 1
+
+Direct competition between users and Pakt takes a fee
+
+- I like the idea of being against yourself
+- Could incentivize cheating if punishment for losing is too high
+
+#### Without a token - solution 2
+
+Invest the money locked and use earnings to pay people (and the project takes a fee)
+
+- In practice, we could only get ~2-3% per year interest = less than $0.01 for a $10 weekly pakt
+- → Doesn’t really work for small amounts and short time periods
+- Maybe possible with scale?
+- Too close to external economy
+
+#### Advantages of a PAKT token
+
+- We can choose our own rules to incentivize the behavior we want
+- Token as a competitive moat: if most of the code is open source, the token is the only thing that cannot be copied (w/ the community)
+
+### Mechanics
+
+#### Mechanics of earnings and risk
+
+- If you succeed your pakt, you earn some tokens
+- If you fail, you don’t lose everything but a greater amount than what you can earn with the same pakt (eg. 4x → for a weekly pakt, you need to succeed for 1 month to recover for 1 failure)
+- Irregular earnings like a lottery? May not work…
+- How to handle someone betting a huge amount on a really easy pakt?
+
+#### Predefined levels
+
+- Each pakt type would have eg. 5 levels with a set range of tokens that you can bet
+- Level 1 → 1..100 tokens (1000 steps / 7 hours sleep)
+- Level 2 → 101..200 tokens (3000 steps / 7.5 hours sleep)
+- Level 3 → 201..300 tokens (5000 steps / 8 hours sleep)
+- Level 4 → 301..400 tokens (7000 steps / 8.5 hours sleep)
+- Level 5 → 401..500 tokens (10k steps / 9 hours sleep)
+
+#### Why an inflationary model?
+
+- To reward users, we cannot create new money but we can create new tokens
+- Unlimited supply
+- The price of the token will change depending on:
+  - the rate of inflation (more tokens in circulation)
+  - if users feel like the app helps them building good habits (more holding and less selling)
+  - how much people succeed or fail (more mint or burn)
+- Reward users, not speculators: people who just buy the token without making pakts will get diluted over time
+- Regulation (Howey test): must be a utility token and not just something that you buy hoping it will do 10x
+
+#### Model 1: Dynamic inflation level
+
+- Distribute more tokens if there is less usage to incentivize early users (inflation decay, a bit like Bitcoin)
+- Usage can be computed with: (total amount of locked tokens) / (total supply) = usage (between 0 and 1)
+- Choose a max and min inflation eg. max 20% and min 2%
+- Inflation = max - (max - min) \* usage
+  - if usage = 0 → inflation = 20 - 18 \* 0 = 20
+  - if usage = 0.5 → inflation = 20 - 18 \* 0.5 = 11
+  - if usage = 1 → inflation = 20 - 18 = 2
+- Fixed token emission each week split in all winners?
+
+#### Model 2: Fixed interest rate
+
+- Choose an interest rate eg. 1% earnings for a weekly pakt
+- Example: you buy 200 tokens and if you succeed your pakt you get 2 new tokens
+- Greater rate for more difficult pakt levels? You get less diluted if you go up in levels
+- The inflation will increase if more people succeed more pakts → helps keep the price not too high?
+
+#### How the project makes money
+
+- Some token preminting
+- Token liquidity providing
+- 10% of new tokens created goes to treasury (w/ vesting?)
+
+#### 1 or 2 tokens?
+
+- Some games use 1 token with variable supply as the game currency and 1 token with fixed supply as a "governance" token (~ shares of the company)
+- May have regulatory risk
+
+#### Token price and liquidity
+
+- 50/50 liquidity pool (eg. Uniswap)
+- pool = 1K MATIC / 1M PAKT → 1 PAKT = 0.001 MATIC
+- someone buys 1000 PAKT (cost: 1 MATIC)
+- pool = 1001 MATIC / 999K PAKT → 1 PAKT = 0,001002002 MATIC
+
+#### Token distribution
+
+- 1M PAKT in pool
+- 10M premined in treasury? (w/ vesting?)
+- 10% of rewards in treasury (w/ vesting?)
+- Block minting out of these rules?
