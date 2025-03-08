@@ -58,7 +58,7 @@ In order to use the Chainlink ecosystem, we need to pay a fee in LINK token for 
 
 ## Technical architecture
 
---- PICTURE HERE ---
+![Architecture](img/architecture.png)
 
 ### Authorization flow (in blue)
 
@@ -83,7 +83,7 @@ In order to use the Chainlink ecosystem, we need to pay a fee in LINK token for 
 
 ### Swap MATIC for LINK with Uniswap
 
---- PICTURE HERE ---
+![Uniswap-link](img/uniswap-link.png)
 
 1. The Chainlink fee is constant so we know the output of the swap but we don’t know how much MATIC we need. Since the amount depends on the market price at the time of the swap, we need to get it just before doing the swap. I use the [Uniswap Quoter](https://docs.uniswap.org/protocol/reference/periphery/lens/Quoter) to get the precise amount needed for the swap.
 2. We know the exact amount but since the price can change, the web app asks for a bit more from the user when sending the transaction.
@@ -99,4 +99,4 @@ Other advantages to this modification:
 1. It greatly simplifies the architecture and the contract code. We no longer need to call the Chainlink contract, and we also no longer need to use Uniswap to get LINK tokens. This makes the app easier to test (no need to mock or fork) and reason about.
 2. We can now add a small MATIC fee when the user wants to unlock their funds. This fee is a nice improvement to the business model.
 
---- PICTURE HERE ---
+![New architecture](img/new-archi.png)
